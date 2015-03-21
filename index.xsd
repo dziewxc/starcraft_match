@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="mail">
+		<xsd:complexType>
+			<xsd:sequence> <!-- specifies that the child elements must appear in a specific order -->
+				<xsd:group name="people">
+				<!-- You must define an all, choice, or sequence element inside the group declaration.-->
+				<xsd:element name="to" type="xsd:string"/>
+				<xsd:element name="from" type="xsd:string" minOccurs="0" maxOccurs="2"/>
+				</xsd:group>
+				<xsd:element name="subject" type="xsd:string" maxOccurs="unbounded" />
+				<xsd:element name="body" type="xsd:string"/>
+			</xsd:sequence>
+			<xsd:all> <!-- child elements can appear in any order, and that each child element must occur only once -->
+			</xsd:all>
+			<xsd:choice> <!-- specifies that either one child element or another can occur -->
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
